@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/change_page_provider.dart';
+import '../helpers/custom_colors.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({super.key});
@@ -13,25 +15,40 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: changePageProvider.selectedIndex,
       onTap: (index) => changePageProvider.setSelectedIndex(index),
-      backgroundColor: const Color(0xff4BC4F2),
+      backgroundColor: CustomColors().darkBlue,
       selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.grey[600],
+      unselectedItemColor: Colors.white,
       type: BottomNavigationBarType.fixed,
+      showSelectedLabels: true,
+      showUnselectedLabels: false,
+      elevation: 10,
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.flag),
+          icon: Padding(
+            padding: EdgeInsets.only(bottom: 10, top: 5),
+            child: FaIcon(
+              FontAwesomeIcons.flag,
+            ),
+          ),
           label: 'Retos',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.bar_chart),
+          icon: Padding(
+              padding: EdgeInsets.only(bottom: 10, top: 5),
+              child: FaIcon(FontAwesomeIcons.chartLine)),
           label: 'Métricas',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: Padding(
+              padding: EdgeInsets.only(bottom: 10, top: 5),
+              child: FaIcon(FontAwesomeIcons.userAstronaut)),
           label: 'Avatar',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.store),
+          icon: Padding(
+            padding: EdgeInsets.only(bottom: 10, top: 5),
+            child: FaIcon(FontAwesomeIcons.shop),
+          ),
           label: 'Tienda',
         ),
       ],
