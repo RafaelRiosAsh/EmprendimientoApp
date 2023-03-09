@@ -114,7 +114,7 @@ class _Form extends StatelessWidget {
                   onPressed: () {
                     if (!loginForm.isValidForm()) return;
                     // Send to the next page, the rest of the app
-                    Navigator.pushReplacementNamed(context, 'avatar');
+                    Navigator.pushReplacementNamed(context, 'home');
                   })
             ],
           )),

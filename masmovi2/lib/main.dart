@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // Import all screens
 import 'screens/screens.dart';
+import 'providers/change_page_provider.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(ChangeNotifierProvider(
+    create: (_) => ChangePageProvider(), child: const MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,8 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'MasMovi2',
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute:
+            'home', // TODO: Change to 'login' when navigation bottom bar is implemented
         routes: {
+          'home': (context) => const HomeScreen(),
           'login': (context) => const LoginScreen(),
           'store': (context) => const StoreScreen(),
           'challenges': (context) => const ChallengesScreen(),
@@ -22,6 +27,7 @@ class MyApp extends StatelessWidget {
         });
   }
 }
+     
 
 
 
