@@ -1,53 +1,43 @@
-// ignore_for_file: unused_local_variable, unused_element, must_be_immutable
+// ignore_for_file: unused_local_variable, unused_element, must_be_immutable, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:masmovi2/helpers/get_challenges.dart';
+import 'package:masmovi2/models/challenge.dart';
 import '../helpers/custom_colors.dart';
+import '../widgets/widgets.dart';
 
 class ChallengesScreen extends StatelessWidget {
-  const ChallengesScreen({Key? key}) : super(key: key);
+  ChallengesScreen({super.key, required this.customColors});
+  CustomColors customColors;
 
   @override
   Widget build(BuildContext context) {
     final customColors = CustomColors();
-
     return Scaffold(
-      body: SingleChildScrollView(
-          
-          child: Column(children: [_Body(customColors: customColors)])),
-    );
-  }
-}
-
-class _Body extends StatelessWidget {
-  const _Body({
-    super.key,
-    required this.customColors,
-  });
-
-  final CustomColors customColors;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            customColors.mediumBlue,
-            customColors.lightBlue,
-            customColors.darkLightBlue
-          ],
+      body: Container(
+        padding: const EdgeInsets.all(20),
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              customColors.mediumBlue,
+              customColors.lightBlue,
+              customColors.darkLightBlue
+            ],
+          ),
         ),
+        child: SingleChildScrollView(
+            child: Column(children: const [_UpperHalf(), _BottomHalf()])),
       ),
-      child: Column(children: const [_UpperHalf(), _BottomHalf()]),
     );
   }
 }
+
+// Upper Half
 
 class _UpperHalf extends StatelessWidget {
   const _UpperHalf({super.key});
@@ -58,9 +48,17 @@ class _UpperHalf extends StatelessWidget {
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.all(20),
-        margin: const EdgeInsets.only(bottom: 40),
+        margin: const EdgeInsets.only(bottom: 22),
         width: double.infinity,
         height: size.height * 0.40,
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: CustomColors().darkBlue,
+              width: 2.5,
+            ),
+          ),
+        ),
         child: Column(children: const [
           _Title(),
           SizedBox(
@@ -82,7 +80,7 @@ class _Title extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Text(
         'Hola Pablo',
         style: TextStyle(
@@ -91,9 +89,9 @@ class _Title extends StatelessWidget {
           color: Colors.white,
           shadows: [
             Shadow(
-              color: Colors.black,
+              color: CustomColors().darkBlue,
               blurRadius: 7,
-              offset: Offset(0, 1),
+              offset: const Offset(0, 1),
             ),
           ],
         ),
@@ -292,6 +290,70 @@ class _BottomHalf extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(width: double.infinity, height: 200, color: Colors.red);
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: [
+          const SizedBox(height: 20),
+          _Challenges(type: "Daily"),
+          const SizedBox(height: 20),
+          _Challenges(type: "Weekly"),
+          const SizedBox(height: 20),
+          _Challenges(type: "Monthly"),
+        ],
+      ),
+    );
+  }
+}
+
+class _Challenges extends StatelessWidget {
+  String type;
+
+  _Challenges({super.key, required this.type});
+
+  @override
+  Widget build(BuildContext context) {
+    List<Challenge> list = [];
+
+    if (type == 'Daily') {
+      type = 'Retos Diarios';
+      list = dailyChallenges;
+    } else if (type == 'Weekly') {
+      type = 'Retos Semanales';
+      list = weeklyChallenges;
+    } else {
+      type = 'Retos Mensuales';
+      list = monthlyChallenges;
+    }
+
+    return Column(
+      children: [
+        Text(
+          type,
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: CustomColors().white,
+            shadows: [
+              Shadow(
+                color: CustomColors().darkBlue,
+                blurRadius: 10,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+        ),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: list.length,
+          itemBuilder: (context, index) {
+            return ChallengeCard(
+              challenge: list[index],
+            );
+          },
+        )
+      ],
+    );
   }
 }

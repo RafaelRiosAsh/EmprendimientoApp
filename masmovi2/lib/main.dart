@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 // Import all screens
 import 'screens/screens.dart';
 import 'providers/change_page_provider.dart';
+import '../helpers/custom_colors.dart';
 
 void main() => runApp(ChangeNotifierProvider(
     create: (_) => ChangePageProvider(), child: const MyApp()));
@@ -12,6 +13,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = CustomColors();
+
     return MaterialApp(
         title: 'MasMovi2',
         debugShowCheckedModeBanner: false,
@@ -21,7 +24,8 @@ class MyApp extends StatelessWidget {
           'home': (context) => const HomeScreen(),
           'login': (context) => const LoginScreen(),
           'store': (context) => const StoreScreen(),
-          'challenges': (context) => const ChallengesScreen(),
+          'challenges': (context) =>
+              ChallengesScreen(customColors: customColors),
           'metrics': (context) => const MetricsScreen(),
           'avatar': (context) => const AvatarScreen(),
         });
