@@ -20,7 +20,13 @@ class ChallengeCard extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: CustomColors().darkBlue),
+            color: CustomColors().darkBlue,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  offset: const Offset(0, 5),
+                  blurRadius: 10)
+            ]),
         child: Stack(
           children: [
             _Background(icon: challenge.icon),

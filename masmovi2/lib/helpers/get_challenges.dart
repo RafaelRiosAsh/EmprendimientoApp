@@ -9,7 +9,7 @@ final List<Challenge> listOfChallenges = [
     type: ChallengeType.daily,
     duration: 24,
     remainingTime: 23,
-    icon: FontAwesomeIcons.youtube,
+    icon: FontAwesomeIcons.yinYang,
     points: 200,
   ),
   Challenge(
@@ -36,7 +36,7 @@ final List<Challenge> listOfChallenges = [
     type: ChallengeType.daily,
     duration: 24,
     remainingTime: 20,
-    icon: FontAwesomeIcons.walkieTalkie,
+    icon: FontAwesomeIcons.weightScale,
     points: 300,
   ),
   Challenge(
@@ -45,7 +45,7 @@ final List<Challenge> listOfChallenges = [
     type: ChallengeType.weekly,
     duration: 168,
     remainingTime: 100,
-    icon: FontAwesomeIcons.weibo,
+    icon: FontAwesomeIcons.heartPulse,
     points: 600,
   ),
   Challenge(
@@ -54,7 +54,7 @@ final List<Challenge> listOfChallenges = [
     type: ChallengeType.monthly,
     duration: 720,
     remainingTime: 600,
-    icon: FontAwesomeIcons.spider,
+    icon: FontAwesomeIcons.dumbbell,
     points: 1200,
   ),
 ];
