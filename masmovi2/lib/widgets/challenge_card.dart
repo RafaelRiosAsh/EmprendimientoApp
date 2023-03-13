@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:masmovi2/helpers/custom_colors.dart';
@@ -105,12 +107,12 @@ class _IconAndPoints extends StatelessWidget {
           color: CustomColors().lightGrey,
           size: 20,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
           '$points pts',
-          style: TextStyle(color: Colors.white, fontSize: 12),
+          style: const TextStyle(color: Colors.white, fontSize: 12),
         )
       ],
     );
@@ -133,16 +135,16 @@ class _TitleAndSubtitle extends StatelessWidget {
         Text(
           title,
           maxLines: 2,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.white, fontSize: 16, overflow: TextOverflow.clip),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
           subtitle,
           maxLines: 2,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.white, fontSize: 10, overflow: TextOverflow.clip),
         )
       ],

@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           'store': (context) => const StoreScreen(),
           'challenges': (context) =>
               ChallengesScreen(customColors: customColors),
-          'metrics': (context) => const MetricsScreen(),
+          'metrics': (context) => MetricsScreen(),
           'avatar': (context) => const AvatarScreen(),
         });
   }
