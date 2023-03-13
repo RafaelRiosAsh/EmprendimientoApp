@@ -111,7 +111,7 @@ class _IconAndPoints extends StatelessWidget {
           height: 10,
         ),
         Text(
-          '$points pts',
+          '$points',
           style: const TextStyle(color: Colors.white, fontSize: 12),
         )
       ],
