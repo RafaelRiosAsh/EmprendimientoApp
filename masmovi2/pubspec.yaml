@@ -29,7 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
-  fl_chart: ^0.61.0
+  fl_chart: ^0.36.2
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.4.0

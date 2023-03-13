@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         index: changePageProvider.selectedIndex,
         children:  [
           ChallengesScreen(customColors: customColors),
-          const MetricsScreen(),
+          MetricsScreen(),
           const AvatarScreen(),
           const StoreScreen(),
         ],
@@ -27,3 +27,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
