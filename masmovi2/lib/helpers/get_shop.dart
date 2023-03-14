@@ -22,13 +22,13 @@ final List<Challenge> listOfChallenges = [
     points: 500,
   ),
   Challenge(
-    title: '20 flexiones de brazos',
-    subtitle: 'Realiza 20 flexiones de brazos en un día',
+    title: 'Chamarra',
+    subtitle: 'Compra una chamarra para tu perrito',
     type: ChallengeType.monthly,
     duration: 720,
     remainingTime: 500,
-    icon: FontAwesomeIcons.dumbbell,
-    points: 1000,
+    icon: FontAwesomeIcons.shirt,
+    points: 1121,
   ),
   Challenge(
     title: 'Nivel 2',
@@ -49,13 +49,13 @@ final List<Challenge> listOfChallenges = [
     points: 600,
   ),
   Challenge(
-    title: 'Sentadillas',
-    subtitle: 'Realiza 50 sentadillas en un día',
+    title: 'Gorra',
+    subtitle: 'Compra un collar para tu perro',
     type: ChallengeType.monthly,
     duration: 720,
     remainingTime: 600,
-    icon: FontAwesomeIcons.dumbbell,
-    points: 1200,
+    icon: FontAwesomeIcons.shirt,
+    points: 1530,
   ),
 ];
 

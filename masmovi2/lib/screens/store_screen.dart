@@ -181,7 +181,7 @@ class _Challenges extends StatelessWidget {
       type = 'Comprar Comida';
       list = weeklyChallenges;
     } else {
-      type = 'Comprar Ropda';
+      type = 'Comprar Ropa';
       list = monthlyChallenges;
     }
 
